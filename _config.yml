@@ -1,3 +1,5 @@
 theme: jekyll-theme-slate
 title: Welcome to the LastUserWins portal!
 description: Your center for LastUserWins resources.
+github:
+  is_project_page: false
