@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Redirecting...</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script>
+window.onload = function(){
+    var callbackMethod = 'callback'
+
+    var script = document.createElement('script');
+    script.src = 'https://www.reddit.com/r/LastUserWins/new.json?jsonp='+callbackMethod;
+
+    document.body.appendChild(script);
+
+    window[callbackMethod] = function(data){
+        delete window[callbackMethod];
+        document.body.removeChild(script);
+        window.location.replace(data.data.children[0].data.url);
+    }
+}
+    </script>
+    <p>You will be redirected to Reddit shortly...</p>
+  </body>
+</html>
